@@ -38,3 +38,10 @@ export const parseAndValidateString = (stringValue: unknown): string => {
     );
   return stringValue;
 };
+
+// Generate message ids for newly added messages using datetime and randomisation.
+export const generateUniqueRandomId = (): number => {
+  const timePart = new Date().getTime();
+  const randomPart = Math.floor(Math.random() * 10000);
+  return Number(`${timePart}${randomPart}`);
+};

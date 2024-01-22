@@ -1,6 +1,6 @@
 import { Channels } from "../models/channel";
 import Message from "../models/message";
-import { MessageBoardHttpError } from "../utils";
+import { MessageBoardHttpError, generateUniqueRandomId } from "../utils";
 
 const errorMessage = "No channel exists for the specified id";
 
@@ -28,10 +28,13 @@ export const addMessagesToChannel = (
 ): Message[] => {
   const channel = channelStore.get(channelId);
   if (channel) {
+    const timestamp = new Date().toISOString();
+    const id = generateUniqueRandomId();
+
     channel.messages.push({
-      id: 1,
+      id,
+      timestamp,
       content: message,
-      timestamp: new Date().toDateString(),
     });
     return channel.messages;
   }
