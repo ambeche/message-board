@@ -5,6 +5,8 @@ import {
   addMessagesToChannel,
   getChennelMessages,
 } from "./controllers/messageController";
+import { messageBoardHttpErrorHandler } from "./utils";
+import Message from "./models/message";
 const app = express();
 app.use(express.json());
 
@@ -20,37 +22,37 @@ app.get("/channels", (_req, res, next) => {
 app.get("/messages/:channelId", (req, res, next) => {
   try {
     const channelId = req.params.channelId;
-    const responseData = getChennelMessages(channelId, channelStore);
-    if (responseData.error) {
-      const { status, message } = responseData.error;
-      return res.status(status).json({ error: message });
+    const messages: Message[] = getChennelMessages(channelId, channelStore);
+    if (messages) {
+      res.json(messages);
     }
-    return res.json(responseData.data);
   } catch (error: unknown) {
-    return next(error);
+    next(error);
   }
 });
 
 app.post("/:channelId", (req, res, next) => {
   try {
     const channelId = req.params.channelId;
-    const message = req.body.message as string;
-    const responseData = addMessagesToChannel(channelId, message, channelStore);
-    if (responseData.error) {
-      const { status, message } = responseData.error;
-      return res.status(status).json({ error: message });
+    const messageToBeAdded = req.body.message as string;
+    const updatedMessages = addMessagesToChannel(
+      channelId,
+      messageToBeAdded,
+      channelStore
+    );
+    if (updatedMessages) {
+      res.json(updatedMessages);
     }
-    return res.json(responseData.data);
   } catch (error: unknown) {
-    return next(error);
+    next(error);
   }
 });
 
-app.get("/healthCheck", (_req, res) => {
-  console.log("pinged");
-  console.log(channelStore);
+// Handles http error responses
+app.use(messageBoardHttpErrorHandler);
 
-  res.send("OK ");
+app.use((_req, res, _next) => {
+  res.status(404).json({ error: "Resource Not Found" });
 });
 
 export default app;

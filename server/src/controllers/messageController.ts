@@ -1,13 +1,8 @@
 import { Channels } from "../models/channel";
-import { APIResponse } from "../types";
+import Message from "../models/message";
+import { MessageBoardHttpError } from "../utils";
 
-const setResponseError = (
-  invalideParam: string,
-  status = 404,
-  errorMessage = "No channel exists for the specified id"
-) => {
-  return { error: { status, message: `${errorMessage}, ${invalideParam}!` } };
-};
+const errorMessage = "No channel exists for the specified id";
 
 /**
  * Find channel by id and return the messages of the specified channel
@@ -18,19 +13,19 @@ const setResponseError = (
 export const getChennelMessages = (
   channelId: string,
   channelStore: Channels
-): APIResponse => {
+): Message[] => {
   const channel = channelStore.get(channelId);
   if (channel) {
-    return { data: channel.messages };
+    return channel.messages;
   }
-  return setResponseError(channelId);
+  throw new MessageBoardHttpError(`${errorMessage}, ${channelId}!`, 404);
 };
 
 export const addMessagesToChannel = (
   channelId: string,
   message: string,
   channelStore: Channels
-): APIResponse => {
+): Message[] => {
   const channel = channelStore.get(channelId);
   if (channel) {
     channel.messages.push({
@@ -38,7 +33,7 @@ export const addMessagesToChannel = (
       content: message,
       timestamp: new Date().toDateString(),
     });
-    return { data: channel.messages };
+    return channel.messages;
   }
-  return setResponseError(channelId);
+  throw new MessageBoardHttpError(`${errorMessage}, ${channelId}!`, 404);
 };
