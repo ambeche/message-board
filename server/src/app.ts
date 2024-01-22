@@ -13,6 +13,15 @@ app.get("/channels", (_req, res, next) => {
   }
 });
 
+app.get("/messages/:channelId", (_req, res, next) => {
+  try {
+    const channelList = getChannelList(channelStore);
+    res.json(channelList);
+  } catch (error: unknown) {
+    next(error);
+  }
+});
+
 app.get("/healthCheck", (_req, res) => {
   console.log("pinged");
   console.log(channelStore);
