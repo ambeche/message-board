@@ -5,7 +5,7 @@ import {
   addMessagesToChannel,
   getChennelMessages,
 } from "./controllers/messageController";
-import { messageBoardHttpErrorHandler } from "./utils";
+import { messageBoardHttpErrorHandler, parseAndValidateString } from "./utils";
 import Message from "./models/message";
 const app = express();
 app.use(express.json());
@@ -34,7 +34,7 @@ app.get("/messages/:channelId", (req, res, next) => {
 app.post("/:channelId", (req, res, next) => {
   try {
     const channelId = req.params.channelId;
-    const messageToBeAdded = req.body.message as string;
+    const messageToBeAdded = parseAndValidateString(req.body.message);
     const updatedMessages = addMessagesToChannel(
       channelId,
       messageToBeAdded,
