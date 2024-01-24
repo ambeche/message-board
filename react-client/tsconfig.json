@@ -18,7 +18,16 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Enables absolute paths for module imports*/
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "context/*": ["context/*"],
+      "services/*": ["services/*"],
+      "types/*": ["types/*"],
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
