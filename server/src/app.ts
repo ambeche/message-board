@@ -1,16 +1,19 @@
-import express from "express";
-import channelStore from "./db";
-import { getChannelList } from "./controllers/channelController";
+import express from 'express';
+import channelStore from './db';
+import { getChannelList } from './controllers/channelController';
 import {
   addMessagesToChannel,
   getChennelMessages,
-} from "./controllers/messageController";
-import { messageBoardHttpErrorHandler, parseAndValidateString } from "./utils";
-import Message from "./models/message";
+} from './controllers/messageController';
+import { messageBoardHttpErrorHandler, parseAndValidateString } from './utils';
+import Message from './models/message';
+import cors = require('cors');
+
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-app.get("/channels", (_req, res, next) => {
+app.get('/channels', (_req, res, next) => {
   try {
     const channelList = getChannelList(channelStore);
     res.json(channelList);
@@ -19,7 +22,7 @@ app.get("/channels", (_req, res, next) => {
   }
 });
 
-app.get("/messages/:channelId", (req, res, next) => {
+app.get('/messages/:channelId', (req, res, next) => {
   try {
     const channelId = req.params.channelId;
     const messages: Message[] = getChennelMessages(channelId, channelStore);
@@ -31,7 +34,7 @@ app.get("/messages/:channelId", (req, res, next) => {
   }
 });
 
-app.post("/:channelId", (req, res, next) => {
+app.post('/:channelId', (req, res, next) => {
   try {
     const channelId = req.params.channelId;
     const messageToBeAdded = parseAndValidateString(req.body.message);
@@ -52,7 +55,7 @@ app.post("/:channelId", (req, res, next) => {
 app.use(messageBoardHttpErrorHandler);
 
 app.use((_req, res, _next) => {
-  res.status(404).json({ error: "Resource Not Found" });
+  res.status(404).json({ error: 'Resource Not Found' });
 });
 
 export default app;

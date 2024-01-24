@@ -6,6 +6,7 @@ import {
   Channel,
   Message,
 } from '../types';
+import APIService from '../apiServices';
 
 export const MessageBoardContext = createContext<MessageBoardContextProps>({
   channels: [],
@@ -41,8 +42,15 @@ export const MessageBoardProvider = ({
     dispatch({ type: 'SET_MESSAGES', payload: messages });
   };
 
+  // Fetch and load channels on app initialisation
   useEffect(() => {
-    // Fetch and set channels
+    const getChannels = async () => {
+      const channels = await APIService.getChannels();
+      if (channels) {
+        setChannels(channels);
+      }
+    };
+    getChannels();
   }, []);
 
   return (
