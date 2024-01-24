@@ -1,13 +1,13 @@
-import { useReducer, useEffect, createContext } from "react";
-import { messageBoardReducer } from ".";
+import { useReducer, useEffect, createContext } from 'react';
+import { messageBoardReducer } from '.';
 import {
-  Channel,
-  Message,
   MessageBoardContextProps,
   MessageBoardState,
-} from "types/index";
+  Channel,
+  Message,
+} from '../types';
 
-const MessageBoardContext = createContext<MessageBoardContextProps>({
+export const MessageBoardContext = createContext<MessageBoardContextProps>({
   channels: [],
   selectedChannel: null,
   messages: [],
@@ -30,15 +30,15 @@ export const MessageBoardProvider = ({
   const [state, dispatch] = useReducer(messageBoardReducer, initialState);
 
   const setChannels = (channels: Channel[]) => {
-    dispatch({ type: "SET_CHANNELS", payload: channels });
+    dispatch({ type: 'SET_CHANNELS', payload: channels });
   };
 
   const selectChannel = (channel: Channel) => {
-    dispatch({ type: "SELECT_CHANNEL", payload: channel });
+    dispatch({ type: 'SELECT_CHANNEL', payload: channel });
   };
 
   const setMessages = (messages: Message[]) => {
-    dispatch({ type: "SET_MESSAGES", payload: messages });
+    dispatch({ type: 'SET_MESSAGES', payload: messages });
   };
 
   useEffect(() => {
