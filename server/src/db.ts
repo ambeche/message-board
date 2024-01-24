@@ -1,84 +1,84 @@
-import { Channels } from "./models/channel";
+import { Channels } from './models/channel';
 
 // In-memory database for channels and their messages
 const channelStore: Channels = new Map([
   [
-    "MarketInsights",
+    'MarketInsights',
     {
-      id: "MarketInsights",
-      description: "Discussions on global market trends and insights",
+      id: 'MarketInsights',
+      description: 'Discussions on global market trends and insights',
       messages: [],
     },
   ],
   [
-    "AIResearch",
+    'AIResearch',
     {
-      id: "AIResearch",
-      description: "Sharing AI and machine learning advancements",
+      id: 'AIResearch',
+      description: 'Sharing AI and machine learning advancements',
       messages: [],
     },
   ],
   [
-    "FinTechInnovations",
+    'FinTechInnovations',
     {
-      id: "FinTechInnovations",
-      description: "Latest developments in financial technology",
+      id: 'FinTechInnovations',
+      description: 'Latest developments in financial technology',
       messages: [],
     },
   ],
   [
-    "ClientSuccessStories",
+    'ClientSuccessStories',
     {
-      id: "ClientSuccessStories",
-      description: "Stories and testimonials from clients",
+      id: 'ClientSuccessStories',
+      description: 'Stories and testimonials from clients',
       messages: [],
     },
   ],
   [
-    "ProductFeedback",
+    'ProductFeedback',
     {
-      id: "ProductFeedback",
-      description: "Feedback on AlphaSense products and features",
+      id: 'ProductFeedback',
+      description: 'Feedback on AlphaSense products and features',
       messages: [],
     },
   ],
   [
-    "IndustryNews",
+    'IndustryNews',
     {
-      id: "IndustryNews",
-      description: "Current news relevant to finance and investment",
+      id: 'IndustryNews',
+      description: 'Current news relevant to finance and investment',
       messages: [],
     },
   ],
   [
-    "AlphaSenseCulture",
+    'AlphaSenseCulture',
     {
-      id: "AlphaSenseCulture",
-      description: "Company culture, events, and employee engagement",
+      id: 'AlphaSenseCulture',
+      description: 'Company culture, events, and employee engagement',
       messages: [],
     },
   ],
   [
-    "RegulatoryUpdates",
+    'RegulatoryUpdates',
     {
-      id: "RegulatoryUpdates",
-      description: "Discussions on financial regulations and compliance",
+      id: 'RegulatoryUpdates',
+      description: 'Discussions on financial regulations and compliance',
       messages: [],
     },
   ],
   [
-    "TechTalks",
+    'TechTalks',
     {
-      id: "TechTalks",
-      description: "Place for tech teams to share and discuss technology",
+      id: 'TechTalks',
+      description: 'Place for tech teams to share and discuss technology',
       messages: [],
     },
   ],
   [
-    "DataAnalytics",
+    'DataAnalytics',
     {
-      id: "DataAnalytics",
-      description: "Data analysis techniques and best practices in finance",
+      id: 'DataAnalytics',
+      description: 'Data analysis techniques and best practices in finance',
       messages: [],
     },
   ],

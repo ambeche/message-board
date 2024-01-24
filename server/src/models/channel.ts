@@ -1,4 +1,4 @@
-import Message from "./message";
+import Message from './message';
 
 interface Channel {
   id: string;
@@ -8,4 +8,4 @@ interface Channel {
 export default Channel;
 
 export type Channels = Map<string, Channel>;
-export type ChannelList = Omit<Channel, "messages">[];
+export type ChannelList = Omit<Channel, 'messages'>[];

@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction, ErrorRequestHandler } from "express";
+import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 
 // Custom Error object for handling http error responses
 export class MessageBoardHttpError extends Error {
@@ -22,16 +22,16 @@ export const messageBoardHttpErrorHandler: ErrorRequestHandler = (
     res.status(status).json({ error: message });
   } else {
     console.error(error.stack); // Logging internal server errors
-    res.status(500).json({ error: "An unexpected error occurred" });
+    res.status(500).json({ error: 'An unexpected error occurred' });
   }
 };
 
 const isString = (arg: unknown): arg is string => {
-  return typeof arg === "string" || arg instanceof String;
+  return typeof arg === 'string' || arg instanceof String;
 };
 
 export const parseAndValidateString = (stringValue: unknown): string => {
-  if (!isString(stringValue) || stringValue.trim() === "")
+  if (!isString(stringValue) || stringValue.trim() === '')
     throw new MessageBoardHttpError(
       `Missing or invalid data: ${stringValue}`,
       400

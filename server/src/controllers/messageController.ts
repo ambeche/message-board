@@ -1,8 +1,8 @@
-import { Channels } from "../models/channel";
-import Message from "../models/message";
-import { MessageBoardHttpError, generateUniqueRandomId } from "../utils";
+import { Channels } from '../models/channel';
+import Message from '../models/message';
+import { MessageBoardHttpError, generateUniqueRandomId } from '../utils';
 
-const errorMessage = "No channel exists for the specified id";
+const errorMessage = 'No channel exists for the specified id';
 
 /**
  * Find channel by id and return the messages of the specified channel

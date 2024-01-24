@@ -1,4 +1,4 @@
-import { ChannelList, Channels } from "../models/channel";
+import { ChannelList, Channels } from '../models/channel';
 
 /**
  * Returns a list of channels metadata from db
