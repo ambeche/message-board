@@ -1,16 +1,43 @@
 import axios from 'axios';
-import { Channel } from './types';
+import { Channel, Message } from './types';
 
 const baseUrl = 'http://localhost:3005';
 
+// Fetch a list of uniquely named channels from the server
 const getChannels = async () => {
   try {
-    const channels = await axios.get<Channel[]>(`${baseUrl}/channels`);
-    return channels.data;
+    const response = await axios.get<Channel[]>(`${baseUrl}/channels`);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
 };
 
-const APIService = { getChannels };
+// Fetches all the messages for a specific channel
+const getMessages = async (channelId: string) => {
+  try {
+    const response = await axios.get<Message[]>(
+      `${baseUrl}/messages/${channelId}`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Adds message to a given channel and returns the updated message list for the channel
+const addMessage = async (channelId: string, message: string) => {
+  try {
+    const newMessage = { message };
+    const response = await axios.post<Message[]>(
+      `${baseUrl}/${channelId}`,
+      newMessage
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const APIService = { getChannels, getMessages, addMessage };
 export default APIService;

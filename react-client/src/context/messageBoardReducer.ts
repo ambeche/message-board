@@ -9,8 +9,13 @@ export const messageBoardReducer = (
       return { ...state, channels: action.payload };
     case 'SELECT_CHANNEL':
       return { ...state, selectedChannel: action.payload };
-    case 'SET_MESSAGES':
-      return { ...state, messages: action.payload };
+    case 'SET_MESSAGES': {
+      const { channelId, messages } = action.payload;
+      return {
+        ...state,
+        messages: new Map(state.messages).set(channelId, messages),
+      };
+    }
     default:
       return state;
   }

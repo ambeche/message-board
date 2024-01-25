@@ -11,7 +11,7 @@ import APIService from '../apiServices';
 export const MessageBoardContext = createContext<MessageBoardContextProps>({
   channels: [],
   selectedChannel: null,
-  messages: [],
+  messages: new Map(),
   setChannels: () => {},
   selectChannel: () => {},
   setMessages: () => {},
@@ -25,7 +25,7 @@ export const MessageBoardProvider = ({
   const initialState: MessageBoardState = {
     channels: [],
     selectedChannel: null,
-    messages: [],
+    messages: new Map(),
   };
 
   const [state, dispatch] = useReducer(messageBoardReducer, initialState);
@@ -38,8 +38,8 @@ export const MessageBoardProvider = ({
     dispatch({ type: 'SELECT_CHANNEL', payload: channel });
   };
 
-  const setMessages = (messages: Message[]) => {
-    dispatch({ type: 'SET_MESSAGES', payload: messages });
+  const setMessages = (messages: Message[], channelId: string) => {
+    dispatch({ type: 'SET_MESSAGES', payload: { messages, channelId } });
   };
 
   // Fetch and load channels on app initialisation
