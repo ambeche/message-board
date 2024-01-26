@@ -9,7 +9,8 @@ const App = () => {
     <div>
       <ChannelList />
       <div className='message-container'>
-        <h1>Message Board - {selectedChannel?.id}</h1>
+        <h1>Message Board</h1>
+        <h3>{selectedChannel?.id}</h3>
         <MessageList />
         <MessageEditor key={selectedChannel?.id} />
       </div>

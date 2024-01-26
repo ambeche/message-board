@@ -1,4 +1,5 @@
 import { useMessageBoard } from '../../context';
+import ChannelCard from './ChannelCard';
 
 const ChannelList = () => {
   const { channels, selectChannel } = useMessageBoard();
@@ -7,13 +8,8 @@ const ChannelList = () => {
     <div className='channel-list'>
       <h1>Channels</h1>
       {channels.map((channel) => (
-        <div
-          key={channel.id}
-          className='channel-item'
-          onClick={() => selectChannel(channel)}
-        >
-          <h4>{channel.id}</h4>
-          {channel.description}
+        <div key={channel.id}>
+          <ChannelCard {...channel} onSelect={() => selectChannel(channel)} />
         </div>
       ))}
     </div>

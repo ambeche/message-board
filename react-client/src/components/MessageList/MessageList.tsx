@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useMessageBoard } from '../../context';
 import APIService from '../../apiServices';
+import MessageCard from './MessageCard';
 
 const MessageList = () => {
   const { messages, setMessages, selectedChannel } = useMessageBoard();
@@ -35,9 +36,8 @@ const MessageList = () => {
     <div className='message-list'>
       {channelsMessages.length > 0 ? (
         channelsMessages.map((message) => (
-          <div key={message.id} className='message-item'>
-            <div>{message.content}</div>
-            <div>{message.timestamp}</div>
+          <div key={message.id}>
+            <MessageCard {...message} />
           </div>
         ))
       ) : (
