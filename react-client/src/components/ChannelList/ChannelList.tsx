@@ -12,7 +12,7 @@ const ChannelList = () => {
           className='channel-item'
           onClick={() => selectChannel(channel)}
         >
-          <h4> {channel.id}</h4>
+          <h4>{channel.id}</h4>
           {channel.description}
         </div>
       ))}

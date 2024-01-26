@@ -16,6 +16,17 @@ export const messageBoardReducer = (
         messages: new Map(state.messages).set(channelId, messages),
       };
     }
+    case 'ADD_MESSAGE': {
+      const { channelId, message } = action.payload;
+      const existingMessages = state.messages.get(channelId) || [];
+      return {
+        ...state,
+        messages: new Map(state.messages).set(channelId, [
+          ...existingMessages,
+          message,
+        ]),
+      };
+    }
     default:
       return state;
   }

@@ -15,6 +15,7 @@ export const MessageBoardContext = createContext<MessageBoardContextProps>({
   setChannels: () => {},
   selectChannel: () => {},
   setMessages: () => {},
+  addMessage: () => {},
 });
 
 export const MessageBoardProvider = ({
@@ -42,6 +43,10 @@ export const MessageBoardProvider = ({
     dispatch({ type: 'SET_MESSAGES', payload: { messages, channelId } });
   };
 
+  const addMessage = (message: Message, channelId: string) => {
+    dispatch({ type: 'ADD_MESSAGE', payload: { message, channelId } });
+  };
+
   // Fetch and load channels on app initialisation
   useEffect(() => {
     const getChannels = async () => {
@@ -55,7 +60,7 @@ export const MessageBoardProvider = ({
 
   return (
     <MessageBoardContext.Provider
-      value={{ ...state, setChannels, selectChannel, setMessages }}
+      value={{ ...state, setChannels, selectChannel, setMessages, addMessage }}
     >
       {children}
     </MessageBoardContext.Provider>

@@ -14,11 +14,12 @@ const getChannels = async () => {
 };
 
 // Fetches all the messages for a specific channel
-const getMessages = async (channelId: string) => {
+const getChannelsMessages = async (channelId: string) => {
   try {
     const response = await axios.get<Message[]>(
       `${baseUrl}/messages/${channelId}`
     );
+    console.log('messagesFromServer: ', response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -39,5 +40,5 @@ const addMessage = async (channelId: string, message: string) => {
   }
 };
 
-const APIService = { getChannels, getMessages, addMessage };
+const APIService = { getChannels, getChannelsMessages, addMessage };
 export default APIService;
