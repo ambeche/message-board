@@ -1,17 +1,24 @@
 import { useMessageBoard } from '../../context';
 import ChannelCard from './ChannelCard';
+import styles from './channelList.module.css';
 
 const ChannelList = () => {
-  const { channels, selectChannel } = useMessageBoard();
+  const { channels, selectedChannel, selectChannel } = useMessageBoard();
 
   return (
     <div className='channel-list'>
-      <h1>Channels</h1>
-      {channels.map((channel) => (
-        <div key={channel.id}>
-          <ChannelCard {...channel} onSelect={() => selectChannel(channel)} />
-        </div>
-      ))}
+      <h3 className={styles.panel}>Channels</h3>
+      <div className={styles.verticalScroll}>
+        {channels.map((channel) => (
+          <div key={channel.id}>
+            <ChannelCard
+              {...channel}
+              selectedChannel={selectedChannel}
+              onSelect={() => selectChannel(channel)}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
