@@ -38,13 +38,13 @@ app.post('/:channelId', (req, res, next) => {
   try {
     const channelId = req.params.channelId;
     const messageToBeAdded = parseAndValidateString(req.body.message);
-    const updatedMessages = addMessagesToChannel(
+    const addedMessage = addMessagesToChannel(
       channelId,
       messageToBeAdded,
       channelStore
     );
-    if (updatedMessages) {
-      res.json(updatedMessages);
+    if (addedMessage) {
+      res.status(201).json(addedMessage);
     }
   } catch (error: unknown) {
     next(error);

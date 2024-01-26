@@ -25,18 +25,24 @@ export const addMessagesToChannel = (
   channelId: string,
   message: string,
   channelStore: Channels
-): Message[] => {
+): Message | undefined => {
   const channel = channelStore.get(channelId);
   if (channel) {
     const timestamp = new Date().toISOString();
     const id = generateUniqueRandomId();
-
-    channel.messages.push({
+    const newMessage = {
       id,
       timestamp,
       content: message,
-    });
-    return channel.messages;
+    };
+    const updatedChannel = {
+      ...channel,
+      messages: [...channel.messages, newMessage],
+    };
+
+    channelStore.set(channelId, updatedChannel);
+
+    return newMessage;
   }
   throw new MessageBoardHttpError(`${errorMessage}, ${channelId}!`, 404);
 };

@@ -26,14 +26,12 @@ const getChannelsMessages = async (channelId: string) => {
   }
 };
 
-// Adds message to a given channel and returns the updated message list for the channel
+// Adds message to a given channel, returning the saved message with timestamp and id
 const addMessage = async (channelId: string, message: string) => {
   try {
-    const newMessage = { message };
-    const response = await axios.post<Message[]>(
-      `${baseUrl}/${channelId}`,
-      newMessage
-    );
+    const response = await axios.post<Message>(`${baseUrl}/${channelId}`, {
+      message,
+    });
     return response.data;
   } catch (error) {
     console.log(error);
