@@ -19,7 +19,6 @@ const getChannelsMessages = async (channelId: string) => {
     const response = await axios.get<Message[]>(
       `${baseUrl}/messages/${channelId}`
     );
-    console.log('messagesFromServer: ', response.data);
     return response.data;
   } catch (error) {
     console.log(error);

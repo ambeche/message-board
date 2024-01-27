@@ -7,6 +7,7 @@ import {
   Message,
 } from '../types';
 import APIService from '../apiServices';
+import { socket } from '../socket';
 
 export const MessageBoardContext = createContext<MessageBoardContextProps>({
   channels: [],
@@ -47,6 +48,15 @@ export const MessageBoardProvider = ({
     dispatch({ type: 'ADD_MESSAGE', payload: { message, channelId } });
   };
 
+  //update other users with the new broadcast
+  const handleBroadCastMessage = (broadcastMessage: {
+    newMessage: Message;
+    channelId: string;
+  }) => {
+    addMessage(broadcastMessage.newMessage, broadcastMessage.channelId);
+    console.log('broadcast: ', broadcastMessage);
+  };
+
   // Fetch and load channels on app initialisation
   useEffect(() => {
     const getChannels = async () => {
@@ -56,6 +66,17 @@ export const MessageBoardProvider = ({
       }
     };
     getChannels();
+  }, []);
+
+  useEffect(() => {
+    // Listen for 'newMessage' events from the server
+    // and update users in real-time
+    socket.on('newMessage', handleBroadCastMessage);
+
+    // Clean up on component unmount
+    return () => {
+      socket.off('newMessage', handleBroadCastMessage);
+    };
   }, []);
 
   return (

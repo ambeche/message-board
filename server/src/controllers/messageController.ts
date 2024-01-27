@@ -1,6 +1,6 @@
 import { Channels } from '../models/channel';
 import Message from '../models/message';
-import { MessageBoardHttpError, generateUniqueRandomId } from '../utils';
+import { MessageBoardHttpError, generateUniqueRandomId } from '../utils/utils';
 
 const errorMessage = 'No channel exists for the specified id';
 
