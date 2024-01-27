@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Channel, Message } from './types';
+import { serverErrorHandler } from './utils';
 
 const baseUrl = 'http://localhost:3005';
 
@@ -9,7 +10,7 @@ const getChannels = async () => {
     const response = await axios.get<Channel[]>(`${baseUrl}/channels`);
     return response.data;
   } catch (error) {
-    console.log(error);
+    serverErrorHandler(error);
   }
 };
 
@@ -21,7 +22,7 @@ const getChannelsMessages = async (channelId: string) => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+    serverErrorHandler(error);
   }
 };
 
@@ -33,7 +34,7 @@ const addMessage = async (channelId: string, message: string) => {
     });
     return response.data;
   } catch (error) {
-    console.log(error);
+    serverErrorHandler(error);
   }
 };
 

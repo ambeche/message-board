@@ -58,18 +58,17 @@ app.post('/:channelId', (req, res, next) => {
       channelStore
     );
     if (addedMessage) {
-      // Broadcast the saved message to all connected clients
-      io.emit('newMessage', { newMessage: addedMessage, channelId });
+      // Broadcast the saved message to all connected clients or users
+      io.emit('newMessage', {
+        newMessage: addedMessage,
+        channelId,
+      });
 
       res.status(201).json({ addedMessage });
     }
   } catch (error: unknown) {
     next(error);
   }
-});
-
-io.on('connection', (socket) => {
-  console.log('a user connected', socket.data);
 });
 
 // Handles http error responses

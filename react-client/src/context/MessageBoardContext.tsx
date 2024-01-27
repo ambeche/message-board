@@ -54,7 +54,6 @@ export const MessageBoardProvider = ({
     channelId: string;
   }) => {
     addMessage(broadcastMessage.newMessage, broadcastMessage.channelId);
-    console.log('broadcast: ', broadcastMessage);
   };
 
   // Fetch and load channels on app initialisation
@@ -69,7 +68,7 @@ export const MessageBoardProvider = ({
   }, []);
 
   useEffect(() => {
-    // Listen for 'newMessage' events from the server
+    // Listen for 'newMessage' events broadcast by the server
     // and update users in real-time
     socket.on('newMessage', handleBroadCastMessage);
 

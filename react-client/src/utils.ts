@@ -1,3 +1,5 @@
+import { isAxiosError } from 'axios';
+
 export const dateFormatter = (datetime: string) => {
   const givenDate = new Date(datetime);
 
@@ -17,4 +19,11 @@ export const dateFormatter = (datetime: string) => {
   const date = givenDate.toLocaleDateString(undefined, dateOptions);
 
   return { time, date };
+};
+
+// Parses and log server error.
+export const serverErrorHandler = (unKnownError: unknown) => {
+  if (isAxiosError(unKnownError)) {
+    console.log(unKnownError);
+  }
 };
