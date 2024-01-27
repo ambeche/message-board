@@ -1,6 +1,6 @@
 .card {
   box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width  : 300px;
+  max-width  : 340px;
   font-family: arial;
   padding    : 1em;
 }
@@ -31,4 +31,14 @@
   padding   : 0.4em;
   max-width : fit-content;
   height    : 500px;
+}
+
+@media only screen and (max-width: 768px) {
+  .verticalScroll {
+    display   : flex;
+    overflow-x: scroll;
+    padding   : 0.4em;
+    max-width : 340;
+
+  }
 }
