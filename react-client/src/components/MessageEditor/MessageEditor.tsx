@@ -33,14 +33,22 @@ const MessageEditor = () => {
   return selectedChannel ? (
     <div className={styles.container}>
       <form onSubmit={postMessageToChannel}>
-        <textarea
-          value={newMessage}
-          onChange={(event) => setNewMessage(event.target.value)}
-          placeholder='Message...'
-        />
-        <button disabled={!newMessage.trim()} type='submit'>
-          Send
-        </button>
+        <div className={styles.editor}>
+          <textarea
+            value={newMessage}
+            onChange={(event) => setNewMessage(event.target.value)}
+            placeholder='Message...'
+            name='addMessageForm'
+            className={styles.textarea}
+          />
+          <button
+            disabled={!newMessage.trim()}
+            type='submit'
+            className={styles.button}
+          >
+            Send
+          </button>
+        </div>
       </form>
     </div>
   ) : null;
