@@ -2,14 +2,18 @@ import styles from './messageList.module.css';
 
 type MessageCardProps = {
   id: number;
-  timestamp: string;
+  time: string;
+  date: string;
   content: string;
 };
-const MessageCard = ({ content, timestamp }: MessageCardProps) => {
+const MessageCard = ({ content, time, date }: MessageCardProps) => {
   return (
     <div className={styles.messageCard}>
       <div className={styles.message}>{content}</div>
-      <div className={styles.timestamp}>{timestamp}</div>
+      <div className={styles.timestamp}>
+        <div>{date}</div>
+        <div>{time}</div>
+      </div>
     </div>
   );
 };

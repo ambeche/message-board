@@ -3,6 +3,7 @@ import { useMessageBoard } from '../../context';
 import APIService from '../../apiServices';
 import MessageCard from './MessageCard';
 import styles from './messageList.module.css';
+import { dateFormatter } from '../../utils';
 
 const MessageList = () => {
   const { messages, setMessages, selectedChannel } = useMessageBoard();
@@ -36,9 +37,9 @@ const MessageList = () => {
   return selectedChannel ? (
     <div className={styles.verticalScroll}>
       {channelsMessages.length > 0 ? (
-        channelsMessages.map((message) => (
+        channelsMessages.map(({ timestamp, ...message }) => (
           <div key={message.id}>
-            <MessageCard {...message} />
+            <MessageCard {...message} {...dateFormatter(timestamp)} />
           </div>
         ))
       ) : (
