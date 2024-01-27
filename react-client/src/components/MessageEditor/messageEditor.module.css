@@ -1,0 +1,10 @@
+.container {
+  position: fixed;
+  bottom  : 1%;
+  width   : 100%;
+}
+
+
+.card:hover {
+  opacity: 0.8;
+}

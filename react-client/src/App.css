@@ -1,9 +1,25 @@
-#root {
-  max-width: 1280px;
-  margin   : 0 auto;
-  padding  : 2rem;
+.app-container {
+  display              : grid;
+  grid-template-columns: 40% 60%;
 }
 
-.card {
-  padding: 2em;
+.message-container {
+  max-height : 70vh;
+  width      : 100%;
+  margin-left: 0%;
+}
+
+.message-header {
+  display    : flex;
+  padding    : 1.5em;
+  font-size  : 1.4em;
+  font-weight: bold;
+  line-height: 0.8;
+}
+
+div.selected-channel {
+  padding-left: 4em;
+  padding-top : 0.36em;
+  font-size   : 0.8em;
+  line-height : 0.4;
 }

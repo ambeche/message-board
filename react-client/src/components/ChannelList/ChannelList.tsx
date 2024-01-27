@@ -6,7 +6,7 @@ const ChannelList = () => {
   const { channels, selectedChannel, selectChannel } = useMessageBoard();
 
   return (
-    <div className='channel-list'>
+    <div>
       <h3 className={styles.panel}>Channels</h3>
       <div className={styles.verticalScroll}>
         {channels.map((channel) => (

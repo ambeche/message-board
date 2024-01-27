@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMessageBoard } from '../../context';
 import APIService from '../../apiServices';
+import styles from './messageEditor.module.css';
 
 const MessageEditor = () => {
   const { selectedChannel, addMessage } = useMessageBoard();
@@ -30,7 +31,7 @@ const MessageEditor = () => {
   };
 
   return selectedChannel ? (
-    <div className='message-form'>
+    <div className={styles.container}>
       <form onSubmit={postMessageToChannel}>
         <textarea
           value={newMessage}

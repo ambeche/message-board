@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useMessageBoard } from '../../context';
 import APIService from '../../apiServices';
 import MessageCard from './MessageCard';
+import styles from './messageList.module.css';
 
 const MessageList = () => {
   const { messages, setMessages, selectedChannel } = useMessageBoard();
@@ -33,7 +34,7 @@ const MessageList = () => {
     : [];
 
   return selectedChannel ? (
-    <div className='message-list'>
+    <div className={styles.verticalScroll}>
       {channelsMessages.length > 0 ? (
         channelsMessages.map((message) => (
           <div key={message.id}>
