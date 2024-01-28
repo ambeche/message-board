@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "Messaging App",
   "scripts": {
-    "start": "cd ./message-board-scripts && cmd.exe /c start-server-and-client.bat",
-    "start:client": "cd ./react-client && npm run dev",
-    "start:server": "cd ./server && npm run dev",
-    "install-all": "bash ./message-board-scripts/install-all.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cd ./message-board-scripts && cmd.exe /c start-server-and-client.bat",
+    "dev:client": "cd ./react-client && npm run dev && cd ..",
+    "dev:server": "cd ./server && npm run dev && cd ..",
+    "start:client": "cd ./react-client && npm run build && npm run preview && cd ..",
+    "start:server": "cd ./server && npm run tsc && npm start cd ..",
+    "install-all": "bash ./message-board-scripts/install-all.sh"
   },
   "author": "Tamanji Che",
   "license": "ISC"

@@ -13,7 +13,10 @@ import {
 } from './utils/utils';
 import Message from './models/message';
 import cors = require('cors');
-import { CLIENT_URL_FOR_CORS } from './utils/config';
+import {
+  DEV_CLIENT_URL_FOR_CORS,
+  PDT_BUILD_CLIENT_URL_FOR_CORS,
+} from './utils/config';
 
 const app = express();
 app.use(cors());
@@ -21,7 +24,7 @@ app.use(cors());
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: CLIENT_URL_FOR_CORS,
+    origin: [DEV_CLIENT_URL_FOR_CORS, PDT_BUILD_CLIENT_URL_FOR_CORS],
   },
 });
 
