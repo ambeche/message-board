@@ -14,7 +14,8 @@
 }
 
 body {
-  margin: 0;
+  margin   : 0;
+  max-width: 1280px;
 }
 
 button {
@@ -38,10 +39,6 @@ button:focus-visible {
   :root {
     color           : #213547;
     background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
   }
 
   button {

@@ -8,7 +8,7 @@
 .selected {
   color-scheme    : light dark;
   color           : rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #213547;
 }
 
 .description {
@@ -17,28 +17,43 @@
 }
 
 .panel {
-  font-size   : 1.8em;
-  line-height : 0.5;
-  padding-left: 1em;
+  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width  : 350px;
+  font-size  : 1.5em;
+  line-height: 0.3;
+  padding    : 1em;
+
 }
 
 .card:hover {
-  opacity: 0.8;
+  opacity: 0.94;
 }
 
 .verticalScroll {
   overflow-y: scroll;
+  overflow-x: hidden;
   padding   : 0.4em;
   max-width : fit-content;
-  height    : 500px;
+  height    : 515px;
 }
 
 @media only screen and (max-width: 768px) {
   .verticalScroll {
     display   : flex;
     overflow-x: scroll;
-    padding   : 0.4em;
-    max-width : 340;
+    overflow-y: hidden;
+    padding   : 0.3em;
+    height    : 157px;
 
+  }
+
+  .card {
+    width: 200px;
+  }
+
+  .panel {
+    font-size   : 1.3em;
+    line-height : 0.3;
+    padding-left: 1em;
   }
 }
