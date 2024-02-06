@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Channel, Message } from './types';
 import { serverErrorHandler } from './utils';
 
-const baseUrl = 'http://localhost:3005';
+const baseUrl = '/api';
 
 // Fetch a list of uniquely named channels from the server
 const getChannels = async () => {

@@ -30,7 +30,7 @@ const io = new Server(server, {
 
 app.use(express.json());
 
-app.get('/channels', (_req, res, next) => {
+app.get('/api/channels', (_req, res, next) => {
   try {
     const channelList = getChannelList(channelStore);
     res.json(channelList);
@@ -39,7 +39,7 @@ app.get('/channels', (_req, res, next) => {
   }
 });
 
-app.get('/messages/:channelId', (req, res, next) => {
+app.get('/api/messages/:channelId', (req, res, next) => {
   try {
     const channelId = req.params.channelId;
     const messages: Message[] = getChennelMessages(channelId, channelStore);
@@ -51,7 +51,7 @@ app.get('/messages/:channelId', (req, res, next) => {
   }
 });
 
-app.post('/:channelId', (req, res, next) => {
+app.post('/api/:channelId', (req, res, next) => {
   try {
     const channelId = req.params.channelId;
     const messageToBeAdded = parseAndValidateString(req.body.message);
