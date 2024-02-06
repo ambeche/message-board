@@ -35,25 +35,19 @@ Below is a simplified overview of the project's folder structure, highlighting t
 
 message-board/
 
-├── server/ # Contains all backend-related code and configurations
+```bash
+   message-board/
+├── server/                  # Backend server implementation
+│   ├── src/                 # Server source code
+│   └── package.json         # Backend dependencies
+├── react-client/            # Frontend React application
+│   ├── src/                 # Client source code
+│   └── package.json         # Frontend dependencies
+├── message-board-scripts/   # Development and production utility scripts
+├── README.md                # Project documentation
+└── package.json             # Root-level scripts and dependencies
 
-│ ├── src/ # Source code for the server, including API endpoints and utilities
-
-│ └── package.json # Manages backend dependencies and scripts
-
-│
-├── react-client/ # Houses the frontend React application
-
-│ ├── src/ # Frontend source code, including components and context
-
-│ └── package.json # Manages frontend dependencies and scripts
-
-│
-├── message-board-scripts/ # Utility scripts for development and production tasks
-
-├── README.md # Documentation for the project
-
-└── package.json # Root package.json for managing project-wide scripts
+```
 
 - **server/**: This directory is dedicated to the backend server, built with Node.js and Express. It includes the application's API endpoints, middleware, and any server utilities.
 - **react-client/**: This directory contains the React-based frontend application, including all UI components, application state management with Context or Redux, and service calls to the backend.
@@ -76,21 +70,19 @@ To set up the project on your local machine:
 
 2. Use the provided script to install dependencies for both the server and the client (**recommended**):
 
-- ```bash
-   npm run install-all
-  ```
+```bash
+ npm run install-all
+```
 
-  or insstall the dependencies separately for the react-client and the server:
+or insstall the dependencies separately for the react-client and the server:
 
-  - ```bash
-    cd ./react-client
-    npm install
-    ```
-    and
-    ```bash
-    cd ./server
-    npm install
-    ```
+```bash
+ cd ./react-client
+ npm install
+
+ cd ./server
+ npm install
+```
 
 ### Development
 
@@ -149,14 +141,14 @@ The backend server provides several RESTful endpoints for managing channels and 
   - `POST /:channelId`: Adds a new message to the specified channel. The request body should include the message content.
     - request body:
     ```json
-    { "message": "message text" }
+    { "message": "Your message" }
     ```
     - response body:
     ```json
     {
       "id": "unique number",
       "timestamp": "date string",
-      "content": "message text"
+      "content": "Your message"
     }
     ```
 
