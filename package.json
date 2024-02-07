@@ -10,6 +10,7 @@
     "dev:client": "cd ./react-client && npm run dev",
     "tsc": "tsc",
     "build": "npm run tsc && npm run build:client && cp -r ./react-client/dist ./build",
+    "heroku-postbuild": "npm run tsc && cp -r ./react-client/dist ./build",
     "build:client": "cd ./react-client && npm run build",
     "start:client": "npm run build:client && npm run preview",
     "start:server": "npm run tsc && npm start",
