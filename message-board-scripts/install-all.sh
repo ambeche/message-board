@@ -9,11 +9,9 @@ BPURPLE="\033[1;35m"
 UPURPLE="\033[4;35m"
 NC='\033[0m' # No Color
 
-backend="./server"
-frontend="../react-client"
+frontend="./react-client"
 
-cd ${backend} &&
-  echo "----------------" &&
+echo "----------------" &&
   echo -e "${PURPLE}Installing Backend dependencies...${NC}" &&
   echo "----------------" &&
   npm install && cd ${frontend} &&
@@ -24,4 +22,4 @@ cd ${backend} &&
 echo -e "           "
 echo -e "${UPURPLE} You can now run both the react-client and the server of ${UBLUE}Message-Board app ${UPURPLE}in a single command:${NC}"
 echo -e "           "
-echo -e " =>  ${BBLUE}npm start ${NC}"
+echo -e " =>  ${BBLUE}npm run dev ${NC}"

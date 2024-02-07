@@ -20,6 +20,8 @@ import {
 
 const app = express();
 app.use(cors());
+app.use(express.json());
+app.use(express.static('build/dist'));
 
 const server = createServer(app);
 const io = new Server(server, {
@@ -27,8 +29,6 @@ const io = new Server(server, {
     origin: [DEV_CLIENT_URL_FOR_CORS, PDT_BUILD_CLIENT_URL_FOR_CORS],
   },
 });
-
-app.use(express.json());
 
 app.get('/api/channels', (_req, res, next) => {
   try {

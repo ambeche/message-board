@@ -2,13 +2,36 @@
   "name": "message-board",
   "version": "1.0.0",
   "description": "Messaging App",
+  "main": "index.js",
   "scripts": {
+    "start": "node build/index.js",
     "dev": "cd ./message-board-scripts && cmd.exe /c start-server-and-client.bat",
+    "dev:server": "ts-node-dev server/src/index.ts",
     "dev:client": "cd ./react-client && npm run dev",
-    "dev:server": "cd ./server && npm run dev",
-    "start:client": "cd ./react-client && npm run build && npm run preview",
-    "start:server": "cd ./server && npm run tsc && npm start",
+    "tsc": "tsc",
+    "build": "npm run tsc && npm run build:client && cp -r ./react-client/dist ./build",
+    "build:client": "cd ./react-client && npm run build",
+    "start:client": "npm run build:client && npm run preview",
+    "start:server": "npm run tsc && npm start",
     "install-all": "bash ./message-board-scripts/install-all.sh"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
   },
   "author": "Tamanji Che",
   "license": "ISC"
