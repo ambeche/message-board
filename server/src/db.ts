@@ -51,9 +51,9 @@ const channelStore: Channels = new Map([
     },
   ],
   [
-    'AlphaSenseCulture',
+    'Culture',
     {
-      id: 'AlphaSenseCulture',
+      id: 'Culture',
       description: 'Company culture, events, and employee engagement',
       messages: [],
     },
