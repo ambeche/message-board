@@ -14,7 +14,8 @@
     "build:client": "cd ./react-client && npm run build",
     "start:client": "npm run build:client && npm run preview",
     "start:server": "npm run tsc && npm start",
-    "install-all": "bash ./message-board-scripts/install-all.sh"
+    "install-all": "bash ./message-board-scripts/install-all.sh",
+    "heroku:deploy": "bash ./message-board-scripts/deploy.sh"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
