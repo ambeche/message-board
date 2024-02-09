@@ -7,7 +7,7 @@ const ChannelList = () => {
 
   return (
     <div>
-      <h3 className={styles.panel}>Channels</h3>
+      <div className={styles.panel}>Channels</div>
       <div className={styles.verticalScroll}>
         {channels.map((channel) => (
           <div key={channel.id}>

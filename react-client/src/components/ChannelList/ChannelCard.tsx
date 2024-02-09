@@ -20,7 +20,7 @@ const ChannelCard = ({
       }`}
       onClick={onSelect}
     >
-      <h4>{id}</h4>
+      <h5>{id}</h5>
       <div className={styles.description}>{description}</div>
     </div>
   );

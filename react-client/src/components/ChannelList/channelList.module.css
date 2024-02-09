@@ -1,14 +1,15 @@
 .card {
-  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width  : 340px;
-  font-family: arial;
-  padding    : 1em;
+  box-shadow      : 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width       : 340px;
+  color           : rgba(255, 255, 255, 0.87);
+  background-color: #213547;
+  font-family     : arial;
+  padding         : 1em;
 }
 
 .selected {
-  color-scheme    : light dark;
-  color           : rgba(255, 255, 255, 0.87);
-  background-color: #213547;
+  color           : #213547;
+  background-color: rgba(255, 255, 255, 0.87);
 }
 
 .description {
@@ -17,11 +18,13 @@
 }
 
 .panel {
-  box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width  : 350px;
-  font-size  : 1.5em;
-  line-height: 0.3;
-  padding    : 1em;
+  box-shadow   : 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  max-width    : 350px;
+  font-size    : 1.2em;
+  font-weight  : bold;
+  line-height  : 0.8;
+  margin-bottom: 1em;
+  padding      : 1.5em;
 
 }
 
@@ -52,8 +55,6 @@
   }
 
   .panel {
-    font-size   : 1.3em;
-    line-height : 0.3;
     padding-left: 1em;
   }
 }

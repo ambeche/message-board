@@ -10,18 +10,19 @@
 }
 
 .message-header {
-  display    : flex;
-  padding    : 1.5em;
-  font-size  : 1.4em;
-  font-weight: bold;
-  line-height: 0.8;
+  box-shadow     : 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  display        : flex;
+  justify-content: space-between;
+  padding        : 1.5em;
+  margin-bottom  : 1em;
+  font-size      : 1.2em;
+  font-weight    : bold;
+  line-height    : 0.8;
 }
 
 div.selected-channel {
-  padding-left: 4em;
-  padding-top : 0.36em;
-  font-size   : 0.8em;
-  line-height : 0.4;
+  color    : grey;
+  font-size: 16px;
 }
 
 p {
@@ -44,16 +45,11 @@ p {
   }
 
   .message-header {
-    padding    : 1em;
-    font-size  : 1.2em;
-    font-weight: bold;
-    line-height: 0.8;
+    padding: 1em;
   }
 
   div.selected-channel {
-    padding-left: 3em;
-    font-size   : 0.8em;
-    line-height : 0.4;
+    font-size: 0.8em;
   }
 
   p {
