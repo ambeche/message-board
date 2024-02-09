@@ -20,8 +20,22 @@
 }
 
 .verticalScroll {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height    : 450px;
-  padding   : 0.3em;
+  overflow-y     : scroll;
+  overflow-x     : hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #213547 rgba(255, 255, 255, 0.87);
+  height         : 435px;
+  padding        : 0.3em;
+}
+
+@media only screen and (max-width: 768px) {
+  .messageCard {
+    margin-left : 2%;
+    margin-right: 2%;
+    padding     : 1em;
+  }
+
+  .verticalScroll {
+    height: 250px;
+  }
 }
