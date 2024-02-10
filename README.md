@@ -2,11 +2,17 @@
 
 ## Overview
 
-The Message Board is a full-stack application that provides real-time communication across various channels. Leveraging WebSockets, it allows for live updates as users post messages. Designed with a responsive UI, it ensures a seamless experience across different devices and screen sizes.
+Message Board (prototype) is an application that provides real-time communication across various channels for a company. Leveraging WebSockets, it allows for live updates as users post messages. Designed with a responsive UI, it ensures a seamless experience across different devices and screen sizes.
 
-<img src="./readme-images/message-board-ui.png" alt="UI of the message board app"/>
-<hr/>
-<img src="./readme-images/real-time-messaging.png" alt="screenshot showcasing real-time messaging between two different clients."/>
+<br/>
+<div> 
+<img src="./react-client/public/mobile-view-dark.jpg" alt="Mobile view of the message board app in Dark mode" width="310" height="590"/>
+<img align="right" src="./react-client/public/mobile-view-light.jpg" alt="Mobile view of the message board app in Light mode" width="310" height="590"/>
+</div>
+
+<br/>
+<img src="./react-client/public/desktop-view-light.png" alt="Mobile view of the message board app in Light mode"/>
+
 ## Key Features
 
 - **Channel Selection**: Users can select from a predefined list of discussion channels.
@@ -14,20 +20,11 @@ The Message Board is a full-stack application that provides real-time communicat
 - **Message Posting**: Users can post new messages to the selected channel, which appear in real-time.
 - **Real-Time Updates**: Utilizes WebSockets for real-time broadcasting of new messages to all connected clients.
 
-### Note:
-
-- **All the the features were implemented as defined by the specifications of the Take-Home Javascript Assignment.**
-- **I used websocket for broadcating posted messages from the backend so that it is available to all users in real-time. I wasn't sure about the specification regarding the availability of newly submitted message to all user(whether in real-time or once refreshed) So I did the implementation in real-time.**
-
 ## Technology Stack
 
 - **Programming Language**: Typescript
 - **Frontend**: React, CSS Modules for styling, `socket.io-client` for WebSocket communication.
 - **Backend**: Node.js, Express for RESTful API, `socket.io` for WebSocket server, in-memory storage for channels and messages.
-
-### Note:
-
-**I used RestAPI for the backend and not GraphQL( which is used by AlphaSense) because I evaluated that the project and the data was simple and would not benefit much from the advantages offered by GraphQL.**
 
 ## Project Structure
 
@@ -39,21 +36,20 @@ message-board/
    message-board/
 ├── server/                  # Backend server implementation
 │   ├── src/                 # Server source code
-│   └── package.json         # Backend dependencies
 ├── react-client/            # Frontend React application
 │   ├── src/                 # Client source code
 │   └── package.json         # Frontend dependencies
 ├── message-board-scripts/   # Development and production utility scripts
 ├── README.md                # Project documentation
-└── package.json             # Root-level scripts and dependencies
+└── package.json             # Backend dependencies at the Root-level
 
 ```
 
-- **server/**: This directory is dedicated to the backend server, built with Node.js and Express. It includes the application's API endpoints, middleware, and any server utilities.
-- **react-client/**: This directory contains the React-based frontend application, including all UI components, application state management with Context or Redux, and service calls to the backend.
-- **message-board-scripts/**: Contains scripts that facilitate common development and production tasks, such as starting the server and client simultaneously for development.
+- **`server/`**: This directory is dedicated to the backend server, built with Node.js and Express. It includes the application's API endpoints, middleware, and any server utilities.
+- **`react-client/`**: This directory contains the React-based frontend application, including all UI components, application state management with Context, and service calls to the backend.
+- **`message-board-scripts/`**: Contains scripts that facilitate common development and production tasks, such as starting the server and client simultaneously for development.
 
-- **package.json (root)**: Located at the root of the project, this `package.json` file manages project-wide scripts, such as those used for initiating both the server and client in a development environment, and any dependencies or configurations that are applicable across the entire project.
+- **`package.json` (root)**: Located at the root of the project, this `package.json` file manages project-wide scripts, such as those used for initiating both the server and client in a development environment, and the backend dependencies for the project. In production, the client build is served as a static by the NodeJS server of Message Board.
 
 ## Getting Started
 
@@ -66,12 +62,14 @@ message-board/
 
 To set up the project on your local machine:
 
-1. After extracting the source code from the archiev that was submitted, navigate to the root directory `/message-board` of the project and install project dependencies.
+1.  Clone the project, navigate to the root directory `/message-board` of the project and install project dependencies.
 
-2. Use the provided script to install dependencies for both the server and the client (**recommended**):
+2.  Use the provided script to install dependencies for both the server and the client (**recommended**):
 
 ```bash
- npm run install-all
+ git clone "insert this git repo url here"
+ cd /message-board                  # navigate to the root directory
+ npm run install-all                # installs both client and server deps
 ```
 
 or insstall the dependencies separately for the react-client and the server:
@@ -80,13 +78,13 @@ or insstall the dependencies separately for the react-client and the server:
  cd ./react-client
  npm install
 
- cd ./server
+ # At the root of the project to install server dependencies (/message-board)
  npm install
 ```
 
 ### Development
 
-To start the development server for both the client and server, run the script below at the root of the project. Both the server and the client will be launched in separate cmd terminals(**Command Prompt or cmd is required**):
+To start the development server for both the client and server, run the script below at the root of the project. Both the server and the client will be launched in separate cmd.exe terminals(**Command Prompt or cmd is required**):
 
 ```bash
    npm run dev
@@ -113,20 +111,14 @@ Run the scripts below to create and run a production build of the client and the
 **Server**
 
 ```bash
-     npm run start:server
-```
-
-**Client**
-
-```bash
-     npm run start:client
+     npm run build && npm start
 ```
 
 ## Usage
 
 Once the servers are running, you can access the Message Board app through your web browser. Follow the instructions printed on console. The frontend url is _http://localhost:5173_
 
-- **Select a Channel:** Click on a channel from the left sidebar to view its messages.
+- **Select a Channel:** Click on a channel from the left sidebar(Desktop view) to view its messages.
 - **Post a Message:** Enter your message in the text area at the bottom and press "Send" to post it.
 - **Real-Time Interaction:** Messages posted by any user will appear in real-time across all clients viewing the same channel.
 
@@ -134,11 +126,12 @@ Once the servers are running, you can access the Message Board app through your 
 
 The backend server provides several RESTful endpoints for managing channels and messages within the Message Board application:
 
+- **baseUrl:** **`/api`**
 - **Channels**
   - `GET /channels`: Fetches a list of all available channels. Each channel includes an `id`(which is the unique name of the channel) and a `description`.
 - **Messages**
   - `GET /messages/:channelId`: Retrieves all messages for a given channel specified by `channelId`.
-  - `POST /:channelId`: Adds a new message to the specified channel. The request body should include the message content.
+  - `POST /:channelId`: Adds a new message to the specified channel. The request body should include the message content. **Posted messages are published in real-time by the server to all clients connected to the server websockect**
     - request body:
     ```json
     { "message": "Your message" }
@@ -156,45 +149,25 @@ The backend server provides several RESTful endpoints for managing channels and 
 
 - **Fetch Channels**
   ```bash
-  curl -X GET http://localhost:3005/channels
+  curl -X GET http://localhost:3005/api/channels
   ```
 - **Fetch Messages for a Channel**
 
   ```bash
-  curl -X GET http://localhost:3005/messages/[channelId]
+  curl -X GET http://localhost:3005/api/messages/[channelId]
 
   ```
 
 - **Fetch Messages for a Channel**
 
   ```bash
-  curl -X POST http://localhost:3005/[channelId] -H "Content-Type: application/json" -d '{"message": "Hello, world!"}'
+  curl -X POST http://localhost:3005/api/[channelId] -H "Content-Type: application/json" -d '{"message": "Hello, world!"}'
 
   ```
 
   _Ensure that your server is up and running before executing the requests._
 
-## Testing
-
-Due to the constraints of the submission deadline, a full suite of automated tests could not be implemented. However, the application has been manually tested to verify core functionality. Key features such as channel selection, message posting, and real-time updates have been thoroughly tested to ensure a smooth user experience.
-
-### Manual Test Cases
-
-- **Channel Selection**: Click on each channel and verify that the correct messages are displayed.
-- **Post Message**: Enter a message and click "Send". The message should appear immediately in the message board.
-- **Real-Time Updates**: Open two instances of the application, post a message in one, and verify that it appears in the other.
-
-### Future Testing Plans
-
-Given additional time, the following tests would be implemented:
-
-- **Unit Tests**: For utility functions and individual components.
-- **Integration Tests**: To test the server's RESTful API responses and WebSocket events.
-- **End-to-End Tests**: Using Cypress to simulate real-user interactions and verify the application flow from start to finish.
-
-The current codebase has been structured with testing in mind, and appropriate refactoring has been done to make the addition of tests straightforward in the future.
-
 ## Developer
 
-- - Tamanji Che
-- - tamanji.ambe@gmail.com
+- Tamanji Che
+- https://www.linkedin.com/in/tamanji/
