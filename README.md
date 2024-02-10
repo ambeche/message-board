@@ -1,4 +1,6 @@
-# Message Board Application
+# Message Board <a href="https://messenge--board-64c5f8903fd9.herokuapp.com/"><img src="./react-client/public/favicon-32x32.png" alt="Message Board app logo" />
+
+</a>
 
 ## Overview
 
@@ -116,7 +118,7 @@ Run the scripts below to create and run a production build of the client and the
 
 ## Usage
 
-Once the servers are running, you can access the Message Board app through your web browser. Follow the instructions printed on console. The frontend url is _http://localhost:5173_
+Once the servers are running, you can access the Message Board app through your web browser. Follow the instructions printed on console. The frontend url is `http://localhost:5173`
 
 - **Select a Channel:** Click on a channel from the left sidebar(Desktop view) to view its messages.
 - **Post a Message:** Enter your message in the text area at the bottom and press "Send" to post it.
