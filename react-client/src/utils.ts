@@ -1,4 +1,5 @@
 import { isAxiosError } from 'axios';
+import { AppTheme } from './types/stateTypes';
 
 export const dateFormatter = (datetime: string) => {
   const givenDate = new Date(datetime);
@@ -26,3 +27,10 @@ export const serverErrorHandler = (unKnownError: unknown) => {
     console.log(unKnownError);
   }
 };
+
+export const toggledTheme = (theme: AppTheme) =>
+  theme === AppTheme.system
+    ? ''
+    : theme === AppTheme.dark
+    ? 'dark-theme'
+    : 'light-theme';

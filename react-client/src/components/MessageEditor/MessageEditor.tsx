@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useMessageBoard } from '../../context';
 import APIService from '../../apiServices';
 import styles from './messageEditor.module.css';
+import { toggledTheme } from '../../utils';
+import { AppTheme } from '../../types/stateTypes';
 
 const MessageEditor = () => {
-  const { selectedChannel } = useMessageBoard();
+  const { selectedChannel, theme } = useMessageBoard();
   const [newMessage, setNewMessage] = useState('');
 
   const postMessageToChannel = async (event: React.SyntheticEvent) => {
@@ -27,12 +29,16 @@ const MessageEditor = () => {
             onChange={(event) => setNewMessage(event.target.value)}
             placeholder='Message...'
             name='addMessageForm'
-            className={styles.textarea}
+            className={`${styles.textarea} ${toggledTheme(theme)}`}
           />
           <button
             disabled={!newMessage.trim()}
             type='submit'
-            className={styles.button}
+            className={`${styles.button} ${
+              theme === AppTheme.dark
+                ? 'dark-theme-button'
+                : 'light-theme-button'
+            }`}
           >
             Send
           </button>

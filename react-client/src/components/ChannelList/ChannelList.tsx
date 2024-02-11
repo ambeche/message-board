@@ -1,4 +1,5 @@
 import { useMessageBoard } from '../../context';
+import ThemeMenu from '../ThemeMenu/ThemeMenu';
 import ChannelCard from './ChannelCard';
 import styles from './channelList.module.css';
 
@@ -7,7 +8,11 @@ const ChannelList = () => {
 
   return (
     <div>
-      <div className={styles.panel}>Channels</div>
+      <div className={styles.panel}>
+        <div className={styles.panelTitle}>Channels</div>
+        <ThemeMenu />
+      </div>
+
       <div className={styles.verticalScroll}>
         {channels.map((channel) => (
           <div key={channel.id}>

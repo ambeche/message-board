@@ -14,9 +14,17 @@ export interface MessageBoardState {
   channels: Channel[];
   selectedChannel: Channel | null;
   messages: MessagesMappedToChannel;
+  theme: AppTheme;
+}
+
+export enum AppTheme {
+  system = 'system',
+  dark = 'dark',
+  light = 'light',
 }
 
 export interface MessageBoardContextProps {
+  theme: AppTheme;
   channels: Channel[];
   selectedChannel: Channel | null;
   messages: MessagesMappedToChannel;
@@ -24,4 +32,5 @@ export interface MessageBoardContextProps {
   selectChannel: (channel: Channel) => void;
   setMessages: (messages: Message[], channelId: string) => void;
   addMessage: (message: Message, channelId: string) => void;
+  setTheme: (theme: AppTheme) => void;
 }

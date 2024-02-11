@@ -8,8 +8,10 @@ import {
 } from '../types';
 import APIService from '../apiServices';
 import { socket } from '../socket';
+import { AppTheme } from '../types/stateTypes';
 
 export const MessageBoardContext = createContext<MessageBoardContextProps>({
+  theme: AppTheme.system,
   channels: [],
   selectedChannel: null,
   messages: new Map(),
@@ -17,6 +19,7 @@ export const MessageBoardContext = createContext<MessageBoardContextProps>({
   selectChannel: () => {},
   setMessages: () => {},
   addMessage: () => {},
+  setTheme: () => {},
 });
 
 export const MessageBoardProvider = ({
@@ -28,6 +31,7 @@ export const MessageBoardProvider = ({
     channels: [],
     selectedChannel: null,
     messages: new Map(),
+    theme: AppTheme.system,
   };
 
   const [state, dispatch] = useReducer(messageBoardReducer, initialState);
@@ -46,6 +50,10 @@ export const MessageBoardProvider = ({
 
   const addMessage = (message: Message, channelId: string) => {
     dispatch({ type: 'ADD_MESSAGE', payload: { message, channelId } });
+  };
+
+  const setTheme = (theme: AppTheme) => {
+    dispatch({ type: 'SET_THEME', payload: theme });
   };
 
   //update other users with the new broadcast
@@ -80,7 +88,14 @@ export const MessageBoardProvider = ({
 
   return (
     <MessageBoardContext.Provider
-      value={{ ...state, setChannels, selectChannel, setMessages, addMessage }}
+      value={{
+        ...state,
+        setChannels,
+        selectChannel,
+        setMessages,
+        addMessage,
+        setTheme,
+      }}
     >
       {children}
     </MessageBoardContext.Provider>

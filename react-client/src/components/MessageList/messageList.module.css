@@ -24,7 +24,7 @@
   overflow-x     : hidden;
   scrollbar-width: thin;
   scrollbar-color: #213547 rgba(255, 255, 255, 0.87);
-  height         : 435px;
+  height         : 436px;
   padding        : 0.3em;
 }
 
@@ -35,7 +35,21 @@
     padding     : 1em;
   }
 
-  .verticalScroll {
-    height: 250px;
+  @media only screen and (min-height: 532px) {
+    .verticalScroll {
+      height: 25vh;
+    }
+  }
+
+  @media only screen and (min-height: 640px) {
+    .verticalScroll {
+      height: 40vh;
+    }
+  }
+
+  @media only screen and (min-height: 732px) {
+    .verticalScroll {
+      height: 48vh;
+    }
   }
 }
