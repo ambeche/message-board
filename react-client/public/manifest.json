@@ -23,13 +23,13 @@
   "description": "Message Board is an application that provides real-time communication across various channels for a company. It allows for live updates as users post messages. Designed with a responsive UI, it ensures a seamless experience across different devices and screen sizes.",
   "screenshots": [
     {
-      "src": "/mobile-view-dark.jpg",
+      "src": "/mobile-view-dark.png",
       "type": "image/png",
       "sizes": "2125x3938",
       "form_factor": "narrow"
     },
     {
-      "src": "/mobile-view-light.jpg",
+      "src": "/mobile-view-light.png",
       "type": "image/jpg",
       "sizes": "2160x3942",
       "form_factor": "narrow"
