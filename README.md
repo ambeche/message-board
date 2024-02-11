@@ -8,8 +8,8 @@ Message Board (prototype) is an application that provides real-time communicatio
 
 <br/>
 <div> 
-<img src="./react-client/public/mobile-view-dark.jpg" alt="Mobile view of the message board app in Dark mode" width="310" height="590"/>
-<img align="right" src="./react-client/public/mobile-view-light.jpg" alt="Mobile view of the message board app in Light mode" width="310" height="590"/>
+<img src="./react-client/public/mobile-view-dark.png" alt="Mobile view of the message board app in Dark mode" width="310" height="590"/>
+<img align="right" src="./react-client/public/mobile-view-light.png" alt="Mobile view of the message board app in Light mode" width="310" height="590"/>
 </div>
 
 <br/>
