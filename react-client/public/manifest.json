@@ -25,14 +25,13 @@
     {
       "src": "/mobile-view-dark.png",
       "type": "image/png",
-      "sizes": "2125x3938",
+      "sizes": "2072x3840",
       "form_factor": "narrow"
     },
     {
       "src": "/mobile-view-light.png",
       "type": "image/jpg",
-      "sizes": "2160x3942",
-      "form_factor": "narrow"
+      "sizes": "2104x3840"
     },
     {
       "src": "/desktop-view-light.png",
