@@ -37,7 +37,9 @@ const MessageEditor = () => {
             className={`${styles.button} ${
               theme === AppTheme.dark
                 ? 'dark-theme-button'
-                : 'light-theme-button'
+                : theme === AppTheme.light
+                ? 'light-theme-button'
+                : ''
             }`}
           >
             Send
