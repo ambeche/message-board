@@ -37,19 +37,48 @@
 
   @media only screen and (min-height: 532px) {
     .verticalScroll {
-      height: 25vh;
+      height: 19vh;
     }
   }
 
   @media only screen and (min-height: 640px) {
     .verticalScroll {
-      height: 40vh;
+      height: 35vh;
     }
   }
 
   @media only screen and (min-height: 732px) {
     .verticalScroll {
-      height: 48vh;
+      height: 40vh;
+    }
+  }
+}
+
+@media only screen and (min-width:800px) {
+
+
+  @media only screen and (max-height: 599px) {
+    .verticalScroll {
+      height: 45vh;
+    }
+  }
+
+
+  @media only screen and (min-height: 600px) and (max-height: 700px) {
+    .verticalScroll {
+      height: 64vh;
+    }
+  }
+
+  @media only screen and (min-height: 701px) and (max-height: 1000px) {
+    .verticalScroll {
+      height: 74vh;
+    }
+  }
+
+  @media only screen and (min-height: 1001px) {
+    .verticalScroll {
+      height: 80vh;
     }
   }
 }
