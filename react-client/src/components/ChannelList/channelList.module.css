@@ -68,3 +68,78 @@
     margin-bottom: 0.4em;
   }
 }
+
+@media only screen and (min-width:768px) {
+
+  @media only screen and (max-height: 389px) {
+    .verticalScroll {
+      height: 10%;
+    }
+  }
+
+  @media only screen and (min-height: 390px) and (max-height: 400px) {
+    .verticalScroll {
+      height: 20%;
+    }
+  }
+
+  @media only screen and (min-height: 401px) and (max-height: 500px) {
+    .verticalScroll {
+      height: 23%;
+    }
+  }
+
+  @media only screen and (min-height: 501px) and (max-height: 600px) {
+    .verticalScroll {
+      height: 28%;
+    }
+  }
+
+  @media only screen and (min-height: 601px) and (max-height: 650px) {
+    .verticalScroll {
+      height: 34%;
+    }
+  }
+
+  @media only screen and (min-height: 651px) and (max-height: 700px) {
+    .verticalScroll {
+      height: 38%;
+    }
+  }
+
+  @media only screen and (min-height: 701px) and (max-height: 800px) {
+    .verticalScroll {
+      height: 42%;
+    }
+  }
+
+  @media only screen and (min-height: 801px) and (max-height: 900px) {
+    .verticalScroll {
+      height: 49%;
+    }
+  }
+
+  @media only screen and (min-height: 901px) and (max-height: 1000px) {
+    .verticalScroll {
+      height: 55%;
+    }
+  }
+
+  @media only screen and (min-height: 1001px) and (max-height: 1100px) {
+    .verticalScroll {
+      height: 62%;
+    }
+  }
+
+  @media only screen and (min-height: 1101px) and (max-height: 1200px) {
+    .verticalScroll {
+      height: 70%;
+    }
+  }
+
+  @media only screen and (min-height: 1201px) {
+    .verticalScroll {
+      height: 75%;
+    }
+  }
+}
