@@ -11,4 +11,4 @@ echo -e "${PURPLE}Removing previous builds...${NC}" &&
   rm -rf ./build ${uiBuild} && echo "done"
 
 # Checks the new project build, commits the static UI (dist) and deploys to Heroku
-npm run build && git add ${uiBuild} && git commit -m "deploy: Added react-ui build for heroku deployment" && git push heroku master
+npm run build && git add ${uiBuild} && git commit -m "deploy: Added react-ui build for heroku deployment" && git push heroku main
