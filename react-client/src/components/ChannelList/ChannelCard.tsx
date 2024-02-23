@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+import { memo } from 'react';
 import { Channel } from '../../types';
 import styles from './channelList.module.css';
 
@@ -25,4 +27,9 @@ const ChannelCard = ({
     </div>
   );
 };
-export default ChannelCard;
+
+export default memo(
+  ChannelCard,
+  (prevProp, nextProp) =>
+    prevProp.selectedChannel?.id === nextProp.selectedChannel?.id
+);

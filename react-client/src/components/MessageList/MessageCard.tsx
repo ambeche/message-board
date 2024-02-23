@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+import { memo } from 'react';
 import styles from './messageList.module.css';
 
 type MessageCardProps = {
@@ -18,4 +20,7 @@ const MessageCard = ({ content, time, date }: MessageCardProps) => {
   );
 };
 
-export default MessageCard;
+export default memo(
+  MessageCard,
+  (prevProp, nextProp) => prevProp.content === nextProp.content
+);
