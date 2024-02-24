@@ -21,6 +21,7 @@ const ChannelCard = ({
         selectedChannel?.id === id ? styles.selected : ''
       }`}
       onClick={onSelect}
+      data-testid='card-test-id'
     >
       <h5>{id}</h5>
       <div className={styles.description}>{description}</div>
