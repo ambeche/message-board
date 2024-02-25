@@ -6,6 +6,7 @@ const jestConfig: JestConfigWithTsJest = {
   moduleNameMapper: {
     '^.+\\.(css|less|scss)$': 'identity-obj-proxy',
   },
+  setupFilesAfterEnv: ['./jest.setup.js'],
 };
 
 export default jestConfig;
