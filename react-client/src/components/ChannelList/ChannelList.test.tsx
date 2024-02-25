@@ -36,7 +36,6 @@ describe('ChannelList', () => {
         <ChannelList />
       </MessageBoardContext.Provider>
     );
-
     const generalChannel = screen.getByText(/General channel/i);
     const randomChannel = screen.getByText(/Random channel/i);
     expect(generalChannel).toBeTruthy();
