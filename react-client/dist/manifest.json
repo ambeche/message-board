@@ -1,0 +1,43 @@
+{
+  "name": "Message Board",
+  "short_name": "mBoard",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "https://messenge--board-64c5f8903fd9.herokuapp.com/",
+  "start_url": "https://messenge--board-64c5f8903fd9.herokuapp.com/",
+  "scope": "/",
+  "theme_color": "#213547",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "en-GB",
+  "description": "Message Board is an application that provides real-time communication across various channels for a company. It allows for live updates as users post messages. Designed with a responsive UI, it ensures a seamless experience across different devices and screen sizes.",
+  "screenshots": [
+    {
+      "src": "/mobile-view-dark.png",
+      "type": "image/png",
+      "sizes": "2072x3840",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/mobile-view-light.png",
+      "type": "image/jpg",
+      "sizes": "2104x3840"
+    },
+    {
+      "src": "/desktop-view-light.png",
+      "type": "image/jpg",
+      "sizes": "1918x949",
+      "form_factor": "wide"
+    }
+  ]
+}
