@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest --config jest.client.config.ts"
+    "test": "jest --config jest.client.config.ts --verbose --runInBand"
   },
   "dependencies": {
     "axios": "^1.6.5",

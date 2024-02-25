@@ -38,7 +38,6 @@ describe('MessageList', () => {
         <MessageList />
       </MessageBoardContext.Provider>
     );
-    screen.debug();
     const messageElement = screen.getByText(/Hello World/i);
     expect(messageElement).toBeTruthy();
   });

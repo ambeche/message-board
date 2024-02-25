@@ -9,14 +9,16 @@
     "dev:server": "ts-node-dev server/src/index.ts",
     "dev:client": "cd ./react-client && npm run dev",
     "tsc": "tsc",
-    "build": "npm run tsc && npm run build:client && cp -r ./react-client/dist ./build",
+    "build": "npm test && npm run tsc && npm run build:client && cp -r ./react-client/dist ./build",
     "heroku-postbuild": "npm run tsc && cp -r ./react-client/dist ./build",
     "build:client": "cd ./react-client && npm run build",
     "start:client": "npm run build:client && npm run preview",
     "start:server": "npm run tsc && npm start",
     "install-all": "bash ./message-board-scripts/install-all.sh",
     "heroku:deploy": "bash ./message-board-scripts/deploy.sh",
-    "test": "jest --config jest.server.config.ts"
+    "test:server": "jest --config jest.server.config.ts --verbose --runInBand",
+    "test:client": "cd ./react-client && npm test",
+    "test": "npm run test:server && npm run test:client"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
