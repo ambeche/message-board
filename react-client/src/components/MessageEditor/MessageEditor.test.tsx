@@ -1,7 +1,14 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import axios from 'axios';
 import MessageEditor from './MessageEditor';
 import { MessageBoardContext } from '../../context/MessageBoardContext';
 import { AppTheme } from '../../types/stateTypes';
+
+// Mocking axios to simulate API call for posting message
+// Should be called at the top of the test file.s
+jest.mock('axios');
+
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('MessageEditor', () => {
   const mockAddMessage = jest.fn();
@@ -11,11 +18,24 @@ describe('MessageEditor', () => {
   const mockSetTheme = jest.fn();
   const theme = AppTheme.system;
 
+  // Clear all mocks after each test
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test('allows message input and submission', async () => {
     const mockSelectedChannel = {
       id: 'General',
       description: 'General discussions',
     };
+
+    // Mock implementation for axios.post
+    const mockData = {
+      content: 'Hello world',
+      id: 20,
+      timestamp: new Date().toISOString(),
+    };
+    mockedAxios.post.mockResolvedValue(mockData);
 
     render(
       <MessageBoardContext.Provider
