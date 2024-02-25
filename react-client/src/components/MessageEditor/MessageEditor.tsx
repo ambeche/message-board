@@ -22,18 +22,22 @@ const MessageEditor = () => {
 
   return selectedChannel ? (
     <div className={styles.container}>
-      <form onSubmit={postMessageToChannel}>
+      <form onSubmit={postMessageToChannel} data-testid='message-form-test-id'>
         <div className={styles.editor}>
           <textarea
             value={newMessage}
             onChange={(event) => setNewMessage(event.target.value)}
-            placeholder='Message...'
+            placeholder='your message here...'
+            aria-label='message input'
             name='addMessageForm'
+            data-testid='textarea-test-id'
             className={`${styles.textarea} ${toggledTheme(theme)}`}
           />
           <button
             disabled={!newMessage.trim()}
             type='submit'
+            aria-label='send message'
+            data-testid='send-button-test-id'
             className={`${styles.button} ${
               theme === AppTheme.dark
                 ? 'dark-theme-button'
