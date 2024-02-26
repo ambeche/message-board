@@ -10,7 +10,7 @@ const App = () => {
   const { width } = useViewport();
   return (
     <div className={`app-container ${toggledTheme(theme)}`}>
-      {width < 768 ? <MobileView /> : <DesktopView />}
+      {width <= 768 ? <MobileView /> : <DesktopView />}
     </div>
   );
 };

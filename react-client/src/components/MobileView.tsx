@@ -1,25 +1,22 @@
+import { useState } from 'react';
 import { useMessageBoard } from '../context/useMessageBoard';
 import ChannelList from './ChannelList/ChannelList';
-import MessageEditor from './MessageEditor/MessageEditor';
-import MessageList from './MessageList/MessageList';
+import MessagePanel from './MessagePanel';
+import { MobileScreenView } from '../types/stateTypes';
 
 const MobileView = () => {
   const { selectedChannel } = useMessageBoard();
-  const mobileView = 'channelListView';
+  const [mobileScreenView, setMobileScreenView] = useState(
+    MobileScreenView.channelView
+  );
 
   return (
     <>
-      {mobileView === 'channelListView' && !selectedChannel?.id ? (
+      {mobileScreenView === MobileScreenView.channelView &&
+      !selectedChannel?.id ? (
         <ChannelList />
       ) : (
-        <div className='message-container'>
-          <div className='message-header'>
-            <div>Message Board</div>
-            <div className='selected-channel'>{selectedChannel?.id}</div>
-          </div>
-          <MessageList />
-          <MessageEditor key={selectedChannel?.id} />
-        </div>
+        <MessagePanel setMobileScreenView={setMobileScreenView} />
       )}
     </>
   );

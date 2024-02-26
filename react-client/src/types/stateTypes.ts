@@ -23,6 +23,11 @@ export enum AppTheme {
   light = 'light',
 }
 
+export enum MobileScreenView {
+  channelView = 'channelView',
+  messageView = 'messageView',
+}
+
 export interface MessageBoardContextProps {
   theme: AppTheme;
   channels: Channel[];
