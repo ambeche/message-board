@@ -57,6 +57,7 @@ p {
     color           : white;
     background-color: #456b8b;
     cursor          : pointer;
+    font-family     : sans-serif, Arial, Helvetica, ;
   }
 
   div.selected-channel {
