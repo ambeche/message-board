@@ -23,7 +23,7 @@ const MessagePanel = ({ setMobileScreenView }: MessagePanelProps) => {
         <div className='message-header'>
           {isMobile ? (
             <div onClick={handleMobileViewNav} className='back-arrow-button'>
-              &#129104;
+              &#x1F850;
             </div>
           ) : null}
           <div>Message Board</div>

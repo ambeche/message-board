@@ -56,6 +56,7 @@ p {
   .back-arrow-button:hover {
     color           : white;
     background-color: #456b8b;
+    cursor          : pointer;
   }
 
   div.selected-channel {
