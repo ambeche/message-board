@@ -1,11 +1,22 @@
 import { useMessageBoard } from '../../context';
+import {
+  Channel,
+  MobileScreenView,
+  MobileViewProps,
+} from '../../types/stateTypes';
 import ThemeMenu from '../ThemeMenu/ThemeMenu';
 import ChannelCard from './ChannelCard';
 import styles from './channelList.module.css';
 
-const ChannelList = () => {
+type ChannelListProps = MobileViewProps;
+
+const ChannelList = ({ setMobileScreenView }: ChannelListProps) => {
   const { channels, selectedChannel, selectChannel } = useMessageBoard();
 
+  const onSelectChannel = (channel: Channel) => {
+    selectChannel(channel);
+    setMobileScreenView && setMobileScreenView(MobileScreenView.messageView);
+  };
   return (
     <div>
       <div className={styles.panel}>
@@ -19,7 +30,7 @@ const ChannelList = () => {
             <ChannelCard
               {...channel}
               selectedChannel={selectedChannel}
-              onSelect={() => selectChannel(channel)}
+              onSelect={() => onSelectChannel(channel)}
             />
           </div>
         ))}

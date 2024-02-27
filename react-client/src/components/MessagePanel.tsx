@@ -1,32 +1,28 @@
 import { useMessageBoard } from '../context/useMessageBoard';
 import { useViewport } from '../context/useViewport';
-import { MobileScreenView } from '../types/stateTypes';
+import { MobileScreenView, MobileViewProps } from '../types/stateTypes';
 import MessageEditor from './MessageEditor/MessageEditor';
 import MessageList from './MessageList/MessageList';
 
-type MessagePanelProps = {
-  setMobileScreenView?: (view: MobileScreenView) => void;
-};
+type MessagePanelProps = MobileViewProps;
 
 const MessagePanel = ({ setMobileScreenView }: MessagePanelProps) => {
-  const { selectedChannel } = useMessageBoard();
+  const { selectedChannel, selectChannel } = useMessageBoard();
   const { width } = useViewport();
 
   const isMobile = width <= 768;
+
+  const handleMobileViewNav = () => {
+    setMobileScreenView && setMobileScreenView(MobileScreenView.channelView);
+    selectChannel(null);
+  };
 
   return (
     <>
       <div className='message-container'>
         <div className='message-header'>
           {isMobile ? (
-            <button
-              onClick={
-                setMobileScreenView &&
-                (() => setMobileScreenView(MobileScreenView.channelView))
-              }
-            >
-              Back
-            </button>
+            <button onClick={handleMobileViewNav}>Back</button>
           ) : null}
           <div>Message Board</div>
           <div className='selected-channel'>{selectedChannel?.id}</div>

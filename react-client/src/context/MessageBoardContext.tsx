@@ -40,7 +40,7 @@ export const MessageBoardProvider = ({
     dispatch({ type: 'SET_CHANNELS', payload: channels });
   };
 
-  const selectChannel = (channel: Channel) => {
+  const selectChannel = (channel: Channel | null) => {
     dispatch({ type: 'SELECT_CHANNEL', payload: channel });
   };
 

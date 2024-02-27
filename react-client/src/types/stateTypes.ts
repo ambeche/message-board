@@ -17,6 +17,10 @@ export interface MessageBoardState {
   theme: AppTheme;
 }
 
+export type MobileViewProps = {
+  setMobileScreenView?: (view: MobileScreenView) => void;
+};
+
 export enum AppTheme {
   system = 'system',
   dark = 'dark',
@@ -34,7 +38,7 @@ export interface MessageBoardContextProps {
   selectedChannel: Channel | null;
   messages: MessagesMappedToChannel;
   setChannels: (channel: Channel[]) => void;
-  selectChannel: (channel: Channel) => void;
+  selectChannel: (channel: Channel | null) => void;
   setMessages: (messages: Message[], channelId: string) => void;
   addMessage: (message: Message, channelId: string) => void;
   setTheme: (theme: AppTheme) => void;
