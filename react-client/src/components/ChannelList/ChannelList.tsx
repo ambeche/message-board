@@ -23,7 +23,11 @@ const ChannelList = ({ setMobileScreenView }: ChannelListProps) => {
         <div className={styles.panelTitle}>Channels</div>
         <ThemeMenu />
       </div>
-
+      {setMobileScreenView && (
+        <div className={styles.infoContainer}>
+          Select a channel to chat or see messages!
+        </div>
+      )}
       <div className={styles.verticalScroll}>
         {channels.map((channel) => (
           <div key={channel.id}>

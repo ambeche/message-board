@@ -35,22 +35,8 @@
     padding     : 1em;
   }
 
-  @media only screen and (min-height: 532px) {
-    .verticalScroll {
-      height: 19vh;
-    }
-  }
-
-  @media only screen and (min-height: 640px) {
-    .verticalScroll {
-      height: 35vh;
-    }
-  }
-
-  @media only screen and (min-height: 732px) {
-    .verticalScroll {
-      height: 40vh;
-    }
+  .verticalScroll {
+    height: 76.5vh;
   }
 }
 

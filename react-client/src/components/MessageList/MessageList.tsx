@@ -47,7 +47,7 @@ const MessageList = () => {
       )}
     </div>
   ) : (
-    <p>Select a channel to see messages.</p>
+    <p>Select a channel to chat or see messages.</p>
   );
 };
 
