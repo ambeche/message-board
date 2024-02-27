@@ -49,15 +49,14 @@ p {
   .back-arrow-button {
     box-shadow   : 0 1px 1px 0 #456b8b;
     border-radius: 12px;
-    padding      : 2px;
-    font-size    : 1.8em;
+    padding      : 0.7em;
+    font-size    : 1em;
   }
 
   .back-arrow-button:hover {
     color           : white;
     background-color: #456b8b;
     cursor          : pointer;
-    font-family     : sans-serif, Arial, Helvetica, ;
   }
 
   div.selected-channel {
