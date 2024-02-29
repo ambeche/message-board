@@ -49,8 +49,12 @@ p {
   .back-arrow-button {
     box-shadow   : 0 1px 1px 0 #456b8b;
     border-radius: 12px;
-    padding      : 0.7em;
-    font-size    : 1em;
+    padding      : 0.3em;
+    font-size    : 1.6em;
+  }
+
+  .back-arrow-button::before {
+    content: "\21E6";
   }
 
   .back-arrow-button:hover {
