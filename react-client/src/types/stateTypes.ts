@@ -15,10 +15,11 @@ export interface MessageBoardState {
   selectedChannel: Channel | null;
   messages: MessagesMappedToChannel;
   theme: AppTheme;
+  redirectToChannelView?: boolean;
 }
 
 export type MobileViewProps = {
-  setMobileScreenView?: (view: MobileScreenView) => void;
+  setMobileScreenView?: () => void;
 };
 
 export enum AppTheme {

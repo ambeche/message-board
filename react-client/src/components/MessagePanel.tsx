@@ -1,6 +1,6 @@
 import { useMessageBoard } from '../context/useMessageBoard';
 import { useViewport } from '../context/useViewport';
-import { MobileScreenView, MobileViewProps } from '../types/stateTypes';
+import { MobileViewProps } from '../types/stateTypes';
 import MessageEditor from './MessageEditor/MessageEditor';
 import MessageList from './MessageList/MessageList';
 
@@ -13,8 +13,9 @@ const MessagePanel = ({ setMobileScreenView }: MessagePanelProps) => {
   const isMobile = width <= 768;
 
   const handleMobileViewNav = () => {
-    setMobileScreenView && setMobileScreenView(MobileScreenView.channelView);
+    setMobileScreenView && setMobileScreenView();
     selectChannel(null);
+    console.log('his len2:', window.history.length);
   };
 
   return (

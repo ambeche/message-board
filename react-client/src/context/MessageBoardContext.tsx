@@ -31,6 +31,7 @@ export const MessageBoardProvider = ({
     channels: [],
     selectedChannel: null,
     messages: new Map(),
+    redirectToChannelView: true,
     theme: AppTheme.system,
   };
 

@@ -1,9 +1,5 @@
 import { useMessageBoard } from '../../context';
-import {
-  Channel,
-  MobileScreenView,
-  MobileViewProps,
-} from '../../types/stateTypes';
+import { Channel, MobileViewProps } from '../../types/stateTypes';
 import ThemeMenu from '../ThemeMenu/ThemeMenu';
 import ChannelCard from './ChannelCard';
 import styles from './channelList.module.css';
@@ -13,9 +9,13 @@ type ChannelListProps = MobileViewProps;
 const ChannelList = ({ setMobileScreenView }: ChannelListProps) => {
   const { channels, selectedChannel, selectChannel } = useMessageBoard();
 
+  const isMobile = setMobileScreenView !== undefined;
+
   const onSelectChannel = (channel: Channel) => {
     selectChannel(channel);
-    setMobileScreenView && setMobileScreenView(MobileScreenView.messageView);
+    if (isMobile) {
+      setMobileScreenView();
+    }
   };
   return (
     <div>
@@ -23,7 +23,7 @@ const ChannelList = ({ setMobileScreenView }: ChannelListProps) => {
         <div className={styles.panelTitle}>Channels</div>
         <ThemeMenu />
       </div>
-      {setMobileScreenView && (
+      {isMobile && (
         <div className={styles.infoContainer}>
           Select a channel to chat or see messages!
         </div>

@@ -6,4 +6,5 @@ export type MessageBoardAction =
   | { type: 'SELECT_CHANNEL'; payload: Channel | null }
   | { type: 'SET_MESSAGES'; payload: SetMessagePayload }
   | { type: 'ADD_MESSAGE'; payload: { message: Message; channelId: string } }
-  | { type: 'SET_THEME'; payload: AppTheme };
+  | { type: 'SET_THEME'; payload: AppTheme }
+  | { type: 'SET_REDIRECT'; payload: boolean };
