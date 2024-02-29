@@ -47,10 +47,11 @@ p {
   }
 
   .back-arrow-button {
-    box-shadow   : 0 1px 1px 0 #456b8b;
+    box-shadow   : 1px 1px 1px 1px #456b8b;
     border-radius: 12px;
-    padding      : 0.3em;
+    padding      : 0.2em;
     font-size    : 1.6em;
+    font-weight  : bold;
   }
 
   .back-arrow-button::before {
