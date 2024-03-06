@@ -15,7 +15,6 @@ const MessagePanel = ({ setMobileScreenView }: MessagePanelProps) => {
   const handleMobileViewNav = () => {
     setMobileScreenView && setMobileScreenView();
     selectChannel(null);
-    console.log('his len2:', window.history.length);
   };
 
   return (
@@ -23,10 +22,9 @@ const MessagePanel = ({ setMobileScreenView }: MessagePanelProps) => {
       <div className='message-container'>
         <div className='message-header'>
           {isMobile ? (
-            <div
-              onClick={handleMobileViewNav}
-              className='back-arrow-button'
-            ></div>
+            <div onClick={handleMobileViewNav} className='back-arrow-button'>
+              &#x21E6;
+            </div>
           ) : null}
           <div>Message Board</div>
           <div className='selected-channel'>{selectedChannel?.id}</div>

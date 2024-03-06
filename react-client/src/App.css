@@ -47,16 +47,14 @@ p {
   }
 
   .back-arrow-button {
-    box-shadow   : 1px 1px 1px 1px #456b8b;
-    border-radius: 12px;
-    padding      : 0.2em;
-    font-size    : 1.6em;
-    font-weight  : bold;
+    box-shadow    : 1px 1px 1px 1px #456b8b;
+    border-radius : 12px;
+    padding       : 0.1em;
+    padding-bottom: 0.2em;
+    font-size     : 1.6em;
+    font-weight   : bold;
   }
 
-  .back-arrow-button::before {
-    content: "\21E6";
-  }
 
   .back-arrow-button:hover {
     color           : white;
@@ -69,6 +67,7 @@ p {
   }
 
   p {
-    text-align: center;
+    text-align  : center;
+    padding-left: 0em;
   }
 }
